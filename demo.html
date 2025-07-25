@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BusGo Demo - Features Showcase</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+      <div class="container">
+        <a class="navbar-brand" href="index.html"
+          ><i class="fas fa-bus"></i> BusGo</a
+        >
+        <div class="navbar-nav ms-auto">
+          <a class="nav-link" href="index.html">Main Site</a>
+          <a class="nav-link active" href="demo.html">Demo</a>
+        </div>
+      </div>
+    </nav>
+
+    <div class="container py-5">
+      <div class="row">
+        <div class="col-12">
+          <h1 class="text-center mb-5">BusGo Features Demo</h1>
+        </div>
+      </div>
+
+      <!-- Feature Cards -->
+      <div class="row g-4">
+        <div class="col-md-6 col-lg-4">
+          <div class="card h-100 border-0 shadow">
+            <div class="card-body text-center">
+              <i class="fas fa-search fa-3x text-primary mb-3"></i>
+              <h5 class="card-title">Bus Search</h5>
+              <p class="card-text">
+                Search for buses between cities with date and passenger
+                selection.
+              </p>
+              <button class="btn btn-primary" onclick="demoSearch()">
+                Try Search
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4">
+          <div class="card h-100 border-0 shadow">
+            <div class="card-body text-center">
+              <i class="fas fa-ticket-alt fa-3x text-success mb-3"></i>
+              <h5 class="card-title">Booking System</h5>
+              <p class="card-text">
+                Complete booking process with passenger details and
+                confirmation.
+              </p>
+              <button class="btn btn-success" onclick="demoBooking()">
+                Try Booking
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4">
+          <div class="card h-100 border-0 shadow">
+            <div class="card-body text-center">
+              <i class="fas fa-sync-alt fa-3x text-warning mb-3"></i>
+              <h5 class="card-title">Real-time Updates</h5>
+              <p class="card-text">
+                Live seat availability updates and dynamic pricing.
+              </p>
+              <button class="btn btn-warning" onclick="demoRealTime()">
+                View Updates
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4">
+          <div class="card h-100 border-0 shadow">
+            <div class="card-body text-center">
+              <i class="fas fa-mobile-alt fa-3x text-info mb-3"></i>
+              <h5 class="card-title">Responsive Design</h5>
+              <p class="card-text">
+                Mobile-friendly interface that works on all devices.
+              </p>
+              <button class="btn btn-info" onclick="demoResponsive()">
+                Test Responsive
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4">
+          <div class="card h-100 border-0 shadow">
+            <div class="card-body text-center">
+              <i class="fas fa-check-circle fa-3x text-success mb-3"></i>
+              <h5 class="card-title">Form Validation</h5>
+              <p class="card-text">
+                Real-time form validation with immediate feedback.
+              </p>
+              <button class="btn btn-success" onclick="demoValidation()">
+                Try Validation
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4">
+          <div class="card h-100 border-0 shadow">
+            <div class="card-body text-center">
+              <i class="fas fa-download fa-3x text-primary mb-3"></i>
+              <h5 class="card-title">AJAX Operations</h5>
+              <p class="card-text">
+                Asynchronous operations without page refresh.
+              </p>
+              <button class="btn btn-primary" onclick="demoAJAX()">
+                Test AJAX
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4">
+          <div class="card h-100 border-0 shadow">
+            <div class="card-body text-center">
+              <i class="fas fa-history fa-3x text-secondary mb-3"></i>
+              <h5 class="card-title">Booking History</h5>
+              <p class="card-text">
+                View and manage past bookings with detailed history tracking.
+              </p>
+              <button class="btn btn-secondary" onclick="demoBookingHistory()">
+                View History
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Demo Output Area -->
+      <div class="row mt-5">
+        <div class="col-12">
+          <div id="demoOutput" class="card d-none">
+            <div class="card-header">
+              <h5 class="mb-0">Demo Output</h5>
+            </div>
+            <div class="card-body">
+              <div id="demoContent"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Technical Details -->
+      <div class="row mt-5">
+        <div class="col-12">
+          <div class="card">
+            <div class="card-header">
+              <h5 class="mb-0">
+                <i class="fas fa-code"></i> Technical Implementation
+              </h5>
+            </div>
+            <div class="card-body">
+              <div class="row">
+                <div class="col-md-6">
+                  <h6>Frontend Technologies:</h6>
+                  <ul>
+                    <li>HTML5 with semantic markup</li>
+                    <li>CSS3 with custom properties and animations</li>
+                    <li>Bootstrap 5 for responsive design</li>
+                    <li>JavaScript ES6+ with modern features</li>
+                    <li>jQuery for DOM manipulation</li>
+                    <li>Font Awesome for icons</li>
+                  </ul>
+                </div>
+                <div class="col-md-6">
+                  <h6>Key Features:</h6>
+                  <ul>
+                    <li>AJAX-powered asynchronous operations</li>
+                    <li>Real-time form validation</li>
+                    <li>Local storage for data persistence</li>
+                    <li>Service Worker for PWA functionality</li>
+                    <li>Responsive mobile-first design</li>
+                    <li>Smooth animations and transitions</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Quick Start Guide -->
+      <div class="row mt-5">
+        <div class="col-12">
+          <div class="card">
+            <div class="card-header">
+              <h5 class="mb-0">
+                <i class="fas fa-rocket"></i> Quick Start Guide
+              </h5>
+            </div>
+            <div class="card-body">
+              <div class="row">
+                <div class="col-md-4">
+                  <div class="text-center">
+                    <div
+                      class="bg-primary text-white rounded-circle d-inline-flex align-items-center justify-content-center"
+                      style="width: 50px; height: 50px"
+                    >
+                      <span class="fw-bold">1</span>
+                    </div>
+                    <h6 class="mt-3">Search Buses</h6>
+                    <p class="text-muted">
+                      Select source, destination, date, and passengers
+                    </p>
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <div class="text-center">
+                    <div
+                      class="bg-success text-white rounded-circle d-inline-flex align-items-center justify-content-center"
+                      style="width: 50px; height: 50px"
+                    >
+                      <span class="fw-bold">2</span>
+                    </div>
+                    <h6 class="mt-3">Choose Bus</h6>
+                    <p class="text-muted">
+                      Browse results and select your preferred bus
+                    </p>
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <div class="text-center">
+                    <div
+                      class="bg-warning text-white rounded-circle d-inline-flex align-items-center justify-content-center"
+                      style="width: 50px; height: 50px"
+                    >
+                      <span class="fw-bold">3</span>
+                    </div>
+                    <h6 class="mt-3">Book & Confirm</h6>
+                    <p class="text-muted">
+                      Enter passenger details and confirm booking
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+    <script>
+      function showDemo(title, content) {
+        $("#demoOutput").removeClass("d-none");
+        $("#demoContent").html(`<h6>${title}</h6>${content}`);
+        $("html, body").animate(
+          {
+            scrollTop: $("#demoOutput").offset().top - 100,
+          },
+          1000
+        );
+      }
+
+      function demoSearch() {
+        const content = `
+                <div class="alert alert-info">
+                    <h6><i class="fas fa-search"></i> Bus Search Demo</h6>
+                    <p>The search functionality allows users to:</p>
+                    <ul>
+                        <li>Select source and destination cities from dropdown menus</li>
+                        <li>Choose travel date with a date picker (minimum date is today)</li>
+                        <li>Specify number of passengers</li>
+                        <li>Get real-time results with available buses</li>
+                    </ul>
+                    <p><strong>Try it:</strong> <a href="index.html#booking" class="btn btn-sm btn-primary">Go to Search Form</a></p>
+                </div>
+            `;
+        showDemo("Bus Search Functionality", content);
+      }
+
+      function demoBooking() {
+        const content = `
+                <div class="alert alert-success">
+                    <h6><i class="fas fa-ticket-alt"></i> Booking System Demo</h6>
+                    <p>The booking process includes:</p>
+                    <ul>
+                        <li>Modal-based booking form with passenger details</li>
+                        <li>Real-time form validation with immediate feedback</li>
+                        <li>Booking summary with trip details and pricing</li>
+                        <li>Confirmation with unique booking ID</li>
+                        <li>Downloadable e-ticket functionality</li>
+                    </ul>
+                    <p><strong>Try it:</strong> Search for buses first, then click "Book Now" on any result.</p>
+                </div>
+            `;
+        showDemo("Booking System", content);
+      }
+
+      function demoRealTime() {
+        const content = `
+                <div class="alert alert-warning">
+                    <h6><i class="fas fa-sync-alt"></i> Real-time Updates Demo</h6>
+                    <p>Real-time features include:</p>
+                    <ul>
+                        <li>Live seat availability updates every 30 seconds</li>
+                        <li>Dynamic pricing based on demand</li>
+                        <li>Instant status updates for bookings</li>
+                        <li>Real-time form validation</li>
+                        <li>Live notifications for important updates</li>
+                    </ul>
+                    <p><strong>Note:</strong> Updates are simulated for demo purposes.</p>
+                </div>
+            `;
+        showDemo("Real-time Updates", content);
+      }
+
+      function demoResponsive() {
+        const content = `
+                <div class="alert alert-info">
+                    <h6><i class="fas fa-mobile-alt"></i> Responsive Design Demo</h6>
+                    <p>Responsive features include:</p>
+                    <ul>
+                        <li>Mobile-first design approach</li>
+                        <li>Adaptive layouts for different screen sizes</li>
+                        <li>Touch-friendly interface elements</li>
+                        <li>Optimized navigation for mobile devices</li>
+                        <li>Readable typography on all devices</li>
+                    </ul>
+                    <p><strong>Try it:</strong> Resize your browser window or view on different devices.</p>
+                </div>
+            `;
+        showDemo("Responsive Design", content);
+      }
+
+      function demoValidation() {
+        const content = `
+                <div class="alert alert-success">
+                    <h6><i class="fas fa-check-circle"></i> Form Validation Demo</h6>
+                    <p>Validation features include:</p>
+                    <ul>
+                        <li>Real-time validation as user types</li>
+                        <li>Email format validation</li>
+                        <li>Phone number format checking</li>
+                        <li>Required field validation</li>
+                        <li>Visual feedback with color coding</li>
+                        <li>Error messages for guidance</li>
+                    </ul>
+                    <p><strong>Try it:</strong> Fill out the booking form with invalid data to see validation in action.</p>
+                </div>
+            `;
+        showDemo("Form Validation", content);
+      }
+
+      function demoAJAX() {
+        const content = `
+                <div class="alert alert-primary">
+                    <h6><i class="fas fa-download"></i> AJAX Operations Demo</h6>
+                    <p>AJAX features include:</p>
+                    <ul>
+                        <li>Asynchronous bus search without page refresh</li>
+                        <li>Background booking processing</li>
+                        <li>Real-time status updates</li>
+                        <li>Error handling with user-friendly messages</li>
+                        <li>Loading indicators during operations</li>
+                        <li>Offline functionality with Service Worker</li>
+                    </ul>
+                    <p><strong>Note:</strong> AJAX calls use mock data for demonstration.</p>
+                </div>
+            `;
+        showDemo("AJAX Operations", content);
+      }
+
+      function demoBookingHistory() {
+        const content = `
+                <div class="alert alert-secondary">
+                    <h6><i class="fas fa-history"></i> Booking History Management Demo</h6>
+                    <p>Booking history features include:</p>
+                    <ul>
+                        <li>Search bookings by Booking ID</li>
+                        <li>View all past and upcoming bookings</li>
+                        <li>Filter by booking status (confirmed, completed, cancelled)</li>
+                        <li>Detailed booking information in modal</li>
+                        <li>Download e-tickets for confirmed bookings</li>
+                        <li>Cancel upcoming bookings with refund processing</li>
+                        <li>Persistent storage using localStorage</li>
+                        <li>Real-time status updates</li>
+                    </ul>
+                    <p><strong>Try it:</strong> <a href="index.html#bookings" class="btn btn-sm btn-secondary">Go to My Bookings</a></p>
+                    <p><strong>Sample Booking IDs:</strong> BG20250101001, BG20250105002, BG20241220003</p>
+                </div>
+            `;
+        showDemo("Booking History Management", content);
+      }
+    </script>
+  </body>
+</html>
