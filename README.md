@@ -64,8 +64,6 @@ BusGo/
 │   └── endpoints.php      # Mock API endpoints (PHP)
 ├── sw.js                  # Service Worker for PWA
 └── README.md              # Project documentation
-├── sw.js                  # Service Worker for PWA
-└── README.md              # Project documentation
 ```
 
 ## Technologies Used
@@ -168,7 +166,7 @@ You can run the project without a web server by:
 - Responsive card layout
 - Hover animations
 
-### 6. Contact Section
+### 7. Contact Section
 
 - Contact information
 - Social media links
@@ -185,12 +183,28 @@ You can run the project without a web server by:
 - `confirmBooking()`: Process booking confirmation
 - `validateBookingForm()`: Form validation logic
 
+### Booking History Functions
+
+- `handleBookingSearch()`: Process booking search form
+- `searchBookingById()`: Find booking by ID
+- `loadAllBookings()`: Display all booking history
+- `loadUpcomingBookings()`: Filter upcoming trips
+- `loadCancelledBookings()`: Filter cancelled bookings
+- `displayBookingResults()`: Render booking cards
+- `showBookingDetails()`: Display detailed booking information
+- `confirmCancelBooking()`: Cancel booking with confirmation
+- `downloadBookingTicket()`: Download e-ticket functionality
+
 ### AJAX Functions
 
 - `enhancedSearchBuses()`: AJAX-powered bus search
 - `enhancedCreateBooking()`: Asynchronous booking creation
 - `checkBookingStatus()`: Booking status verification
 - `updateSeatAvailabilityAJAX()`: Real-time updates
+- `enhancedSearchBookingById()`: AJAX booking search by ID
+- `enhancedLoadBookingHistory()`: Load booking history via API
+- `enhancedCancelBooking()`: Cancel booking with API integration
+- `syncBookingHistoryWithServer()`: Synchronize booking data
 
 ### Utility Functions
 
@@ -231,6 +245,9 @@ GET  /api/cities              # Get list of cities
 GET  /api/buses/search        # Search available buses
 POST /api/booking             # Create new booking
 GET  /api/booking/status      # Check booking status
+GET  /api/booking/history     # Get booking history by email
+GET  /api/booking/{id}        # Get specific booking details
+POST /api/booking/{id}/cancel # Cancel a specific booking
 ```
 
 ### Request/Response Examples
@@ -254,6 +271,21 @@ POST /api/booking
   "passengers": 2,
   "date": "2025-07-25"
 }
+```
+
+**Get Booking History:**
+```
+GET /api/booking/history?email=john@example.com
+```
+
+**Get Specific Booking:**
+```
+GET /api/booking/BG20250101001
+```
+
+**Cancel Booking:**
+```
+POST /api/booking/BG20250101001/cancel
 ```
 
 ## Browser Support
@@ -283,13 +315,16 @@ POST /api/booking
 
 - **Payment Gateway Integration**: Online payment processing
 - **User Authentication**: Login/registration system
-- **Booking History**: User dashboard with booking management
-- **Real-time Tracking**: Live bus tracking
+- **Real-time Tracking**: Live bus tracking with GPS integration
 - **Push Notifications**: Booking reminders and updates
-- **Multi-language Support**: Internationalization
-- **Advanced Filters**: Price range, amenities, ratings
-- **Seat Selection**: Interactive seat map
-- **Mobile App**: Native mobile application
+- **Multi-language Support**: Internationalization (i18n)
+- **Advanced Filters**: Price range, amenities, ratings filters
+- **Seat Selection**: Interactive seat map for bus layout
+- **Mobile App**: Native mobile application (iOS/Android)
+- **Email Notifications**: Automated booking confirmations and reminders
+- **Admin Dashboard**: Backend management system for operators
+- **Route Analytics**: Performance metrics and route optimization
+- **Loyalty Program**: Reward points and discounts for frequent travelers
 
 ## Contributing
 
@@ -313,5 +348,6 @@ This project is open source and available under the [MIT License](LICENSE).
 ---
 
 **Note**: This is a demonstration project for educational purposes. For production use, additional security measures, error handling, and server-side validation should be implemented.
-#   b u s _ b o o k i n g  
+#   b u s _ b o o k i n g 
+ 
  
